@@ -408,7 +408,7 @@ export const AILab = () => {
                 Whether you need a custom AI agent, a fine-tuned LLM or an API integration, start with a technical discovery session. We map your data, workflow and success metrics first.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact">
+                <Link to="/contact?topic=ai-lab">
                   <Button variant="secondary" className="w-full sm:w-auto px-8 py-4">Book a Technical Discovery Session</Button>
                 </Link>
                 {/* TODO(confirm: developer portal exists?): Hidden button until developer portal exists */}

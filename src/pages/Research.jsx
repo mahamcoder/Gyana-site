@@ -313,11 +313,11 @@ export const Research = () => {
                 Subscribe for new frameworks, macro reports and AI research, written for institutional decision-makers and capital allocators.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact">
+                <Link to="/contact?topic=research">
                   {/* TODO(confirm: subscribe action - links to /contact for now) */}
                   <Button variant="primary" className="w-full sm:w-auto px-8 py-4">Subscribe to Research Updates</Button>
                 </Link>
-                <Link to="/contact">
+                <Link to="/contact?topic=research">
                   <Button variant="secondary" className="w-full sm:w-auto px-8 py-4 text-black border-black/10 hover:border-black">Request Full Research Access</Button>
                 </Link>
               </div>

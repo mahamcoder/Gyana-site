@@ -406,10 +406,10 @@ export const ProprietaryAlpha = () => {
                 .
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact">
+                <Link to="/contact?topic=alpha">
                   <Button variant="primary" className="w-full sm:w-auto px-8 py-4">Begin Private Onboarding</Button>
                 </Link>
-                <Link to="/contact">
+                <Link to="/contact?topic=alpha">
                   <Button variant="secondary" className="w-full sm:w-auto px-8 py-4 text-black border-black/10 hover:border-black">Request an Architecture Consultation</Button>
                 </Link>
               </div>

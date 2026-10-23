@@ -133,7 +133,7 @@ export const AnalyticsDesk = () => {
               <a href="#services">
                 <Button variant="primary" className="w-full sm:w-auto px-8 py-4">View Modeling Services</Button>
               </a>
-              <Link to="/contact">
+              <Link to="/contact?topic=modeling">
                 <Button variant="secondary" className="w-full sm:w-auto px-8 py-4 text-black border-black/10 hover:border-black">Book a Strategy Call</Button>
               </Link>
             </div>
@@ -397,7 +397,7 @@ export const AnalyticsDesk = () => {
                 Talk to our financial modeling team about your current mandate. On the first call we scope the model, the timeline and the review steps.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact">
+                <Link to="/contact?topic=modeling">
                   <Button variant="secondary" className="w-full sm:w-auto px-8 py-4">Book a Strategy Call</Button>
                 </Link>
                 {/* TODO(confirm: client portal exists?): Hidden button until client portal exists */}
