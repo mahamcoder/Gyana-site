@@ -1,23 +1,91 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Search, LineChart, Cpu, Presentation } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 
 export const AboutGP = () => {
+  useEffect(() => {
+    document.title = 'About Gyanasarathi | CRE Modeling Meets Agentic AI';
+  }, []);
+
+  const aboutSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'AboutPage',
+        '@id': 'https://gyanasarathi.com/about#webpage',
+        'url': 'https://gyanasarathi.com/about',
+        'name': 'About Gyanasarathi | CRE Modeling Meets Agentic AI',
+        'description':
+          'Gyanasarathi is led by founder Gyan [surname]. Gyan brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. Gyan also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.',
+        'isPartOf': {
+          '@id': 'https://gyanasarathi.com/#website',
+        },
+        'about': {
+          '@id': 'https://gyanasarathi.com/#organization',
+        },
+      },
+      {
+        '@type': 'Person',
+        '@id': 'https://gyanasarathi.com/about#founder',
+        'name': 'Gyan [surname]',
+        'jobTitle': 'Founder',
+        'description':
+          'Gyanasarathi is led by founder Gyan [surname]. Gyan brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. Gyan also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.',
+        'worksFor': {
+          '@id': 'https://gyanasarathi.com/#organization',
+        },
+        'alumniOf': {
+          '@type': 'CollegeOrUniversity',
+          'name': 'Sri Sri University',
+        },
+        'knowsAbout': [
+          'Commercial real estate underwriting',
+          'Argus Enterprise',
+          'DCF and LP/GP waterfall modeling',
+          'Agentic AI',
+        ],
+        'sameAs': ['https://www.linkedin.com/in/[profile-handle]'],
+      },
+      {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Home',
+            'item': 'https://gyanasarathi.com/',
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': 'About',
+            'item': 'https://gyanasarathi.com/about',
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="w-full overflow-hidden bg-blue-50/20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
+
       {/* SECTION 1 — HERO */}
-      <section className="relative min-h-[60vh] flex flex-col justify-center px-6 pt-40 pb-24 bg-blue-50/20 overflow-hidden relative z-10 border-b border-black/5">
+      <section className="relative min-h-[60vh] flex flex-col justify-center px-6 pt-40 pb-24 bg-blue-50/20 overflow-hidden z-10 border-b border-black/5">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-black/[0.03] via-transparent to-transparent pointer-events-none"></div>
         <div className="container mx-auto max-w-5xl text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-6 inline-block">About GP</span>
+            <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-6 inline-block">ABOUT GYANASARATHI</span>
             <h1 className="text-4xl md:text-[4.5rem] font-medium tracking-tighter text-black leading-[1.1] mb-8">
-              Where Financial Mastery Meets <span className="text-gray-400">Algorithmic Precision</span>
+              Where Financial Modeling Meets <span className="text-gray-400">Agentic AI Engineering</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed mb-10">
-             GyanSarathi sits at the intersection of institutional financial analysis and advanced algorithmic engineering. It’s not just a consulting firm. It’s a human-led thinking machine.
+              Gyanasarathi is a modeling desk and an AI lab under one roof. Our analysts underwrite real assets; our engineers turn that judgment into AI that scales it.
             </p>
             <Link to="/ai-lab">
               <Button variant="primary" className="px-8 py-4">See What We Deliver</Button>
@@ -32,10 +100,20 @@ export const AboutGP = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <h2 className="text-3xl md:text-[3.25rem] font-medium tracking-tighter text-black leading-none mb-8">
-                Executive Overview
+                Who Leads Gyanasarathi
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed mb-10 font-medium">
-               GP combines an MBA in Finance and Business Analytics with executive experience in scaling global operations and managing complex KPOs. This blend of financial expertise and operational depth enables GyanSarathi to build custom AI systems not generic reports tailored to how your institution thinks.
+              <p className="text-lg text-gray-600 leading-relaxed mb-6 font-medium">
+                Gyanasarathi is led by founder{' '}
+                <a
+                  href="https://www.linkedin.com/in/[profile-handle]"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-black underline hover:text-sapforce-accent transition-colors"
+                >
+                  Gyan [surname]
+                </a>
+                {/* TODO(confirm): founder surname Gyan [surname] and LinkedIn profile handle */}
+                . Gyan brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. Gyan also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.
               </p>
 
               <ul className="space-y-6">
@@ -43,19 +121,26 @@ export const AboutGP = () => {
                   <div className="w-6 h-6 rounded-full bg-black/5 flex items-center justify-center shrink-0 mt-1">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-black"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
-                  <span className="text-black font-medium leading-relaxed">MBA in Finance and Business Analytics from a globally recognized institution</span>
+                  <span className="text-black font-medium leading-relaxed">
+                    MBA in Finance and Business Analytics, Sri Sri University
+                    {/* TODO(confirm): Sri Sri University school name */}
+                  </span>
                 </li>
                 <li className="flex items-start gap-4">
                   <div className="w-6 h-6 rounded-full bg-black/5 flex items-center justify-center shrink-0 mt-1">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-black"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
-                  <span className="text-black font-medium leading-relaxed">Executive track record in scaling international operations and knowledge-intensive business units</span>
+                  <span className="text-black font-medium leading-relaxed">
+                    Executive track record in scaling knowledge-process outsourcing (KPO) teams for global clients
+                  </span>
                 </li>
                 <li className="flex items-start gap-4">
                   <div className="w-6 h-6 rounded-full bg-black/5 flex items-center justify-center shrink-0 mt-1">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-black"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
-                  <span className="text-black font-medium leading-relaxed">Deep practitioner expertise spanning financial modeling, quantitative analysis, and AI systems architecture</span>
+                  <span className="text-black font-medium leading-relaxed">
+                    Hands-on in Argus Enterprise, Excel DCF and LP/GP waterfall models, and AI systems design
+                  </span>
                 </li>
               </ul>
             </motion.div>
@@ -79,8 +164,8 @@ export const AboutGP = () => {
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 3v18h18" /><path d="M18 9l-5-5-6 6-4-4" /></svg>
                   </div>
                   <div className="pr-2">
-                    <div className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Alpha Generated</div>
-                    <div className="text-lg font-medium tracking-tighter text-black leading-none whitespace-nowrap">+24.8% Above Benchmark</div>
+                    <div className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Founder Track Record</div>
+                    <div className="text-lg font-medium tracking-tighter text-black leading-none whitespace-nowrap">7+ Years of CRE Underwriting</div>
                   </div>
                 </motion.div>
 
@@ -91,10 +176,10 @@ export const AboutGP = () => {
                 >
                   <div className="flex justify-between items-start mb-8 gap-4">
                     <div>
-                      <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1.5">Portfolio Growth</div>
-                      <div className="text-4xl font-medium tracking-tighter text-black leading-none">$14.2M</div>
+                      <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1.5">Capital Modeled</div>
+                      <div className="text-4xl font-medium tracking-tighter text-black leading-none">$2.5B+</div>{/* TODO(confirm): $2.5B+ underwritten figure */}
                     </div>
-                    <div className="px-2.5 py-1 rounded-full bg-sapforce-accent/20 text-sapforce-accent text-[10px] font-bold whitespace-nowrap">Year to Date</div>
+                    <div className="px-2.5 py-1 rounded-full bg-sapforce-accent/20 text-sapforce-accent text-[10px] font-bold whitespace-nowrap">Underwritten</div>
                   </div>
 
                   {/* Bar & Line SVG Combination */}
@@ -150,13 +235,13 @@ export const AboutGP = () => {
             style={{ background: "linear-gradient(to bottom right, #ffffff, #92d5d8, #4db9dc)" }}
           >
             <div className="relative z-10 max-w-4xl mx-auto">
-              <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-6 inline-block">Our Philosophy</span>
+              <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-6 inline-block">OUR PHILOSOPHY</span>
               <h2 className="text-4xl md:text-[4rem] font-medium tracking-tighter text-black leading-[1.05] mb-8">
-                Data-Driven by Design. <br  />
+                Data-Driven by Design. <br />
                 <span className="text-gray-600">AI-Accelerated by Choice.</span>
               </h2>
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium">
-               The future of finance belongs not to those with the most data, but to those who turn it into decisions fastest. At GyanSarathi, we merge financial modeling with autonomous AI, making every insight both accurate and executable. You’re not hiring analysts or developers you’re activating an institutional intelligence system.
+                Investment teams rarely lack data; they lack time to turn it into a defensible decision. At Gyanasarathi, AI agents take the repetitive work: data entry, document review and scenario runs. Analysts build, check and sign off every model. You get one team that models and automates.
               </p>
             </div>
           </motion.div>
@@ -167,35 +252,37 @@ export const AboutGP = () => {
       <section className="py-24 md:py-32 bg-white relative z-10">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center md:text-left mb-16">
-            <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-4 inline-block">Our Commitment to Every Client</span>
+            <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-4 inline-block">OUR COMMITMENT TO EVERY CLIENT</span>
             <h2 className="text-3xl md:text-[3.25rem] font-medium tracking-tighter text-black leading-none">
-              What You Can <br/> Always Expect From Us
+              What Our Engagements <br /> Cover
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <FeatureCard
               icon={<Search size={22} />}
-              title="Strategic Market Research"
-              desc="Every engagement begins with deep research that maps industry dynamics, uncovers opportunities and builds the intelligence behind high-value decisions."
+              title="Market and Submarket Research"
+              desc="Every engagement starts with market research on supply, demand, rents and cap rate comps, so each model assumption rests on evidence."
               delay={0.1}
             />
             <FeatureCard
               icon={<LineChart size={22} />}
-              title="Institutional Financial Analytics"
-              desc="Our modeling includes DCF, LBO frameworks, comparable valuations, and portfolio diagnostics.IT built to institutional standards and delivered with boardroom clarity."
+              title="Institutional Financial Modeling"
+              desc="DCF, LBO, comparable valuations and portfolio diagnostics, built to institutional standards and documented so your investment committee can audit every input."
               delay={0.2}
+              to="/analytics"
             />
             <FeatureCard
               icon={<Cpu size={22} />}
               title="AI Automation and Agent Deployment"
-              desc="We build autonomous AI agents that eliminate bottlenecks in analytical workflows, automating data extraction, document parsing, and reporting with precision and speed."
+              desc="We deploy AI agents that extract data from rent rolls, leases and filings, parse documents and draft reports, cutting manual hours in every analytical cycle."
               delay={0.3}
+              to="/ai-lab"
             />
             <FeatureCard
               icon={<Presentation size={22} />}
-              title="24/7 C-Suite Strategic Support"
-              desc="Capital markets never sleep, and neither do we. We provide continuous advisory, model upkeep and intelligence updates to keep your leadership always informed."
+              title="Follow-the-Sun Model Support"
+              desc="With our team in India, work moves while your office is closed: model updates, scenario reruns and data refreshes are ready when your day starts."
               delay={0.4}
             />
           </div>
@@ -221,11 +308,11 @@ export const AboutGP = () => {
                 </span>
               </h2>
               <p className="text-lg md:text-xl text-gray-500 mb-10">
-                Book a 30-minute strategy call to discuss your current mandate, whether it is a valuation project, an AI deployment, or a full-scale proprietary model build.
+                Book a 30-minute strategy call about your current mandate: a valuation, a fund waterfall, an AI deployment or a private AI model build.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact">
-                  <Button variant="secondary" className="w-full sm:w-auto">Book Your Strategy Call</Button>
+                  <Button variant="secondary" className="w-full sm:w-auto">Book a Strategy Call</Button>
                 </Link>
               </div>
             </div>
@@ -237,20 +324,30 @@ export const AboutGP = () => {
   );
 };
 
-const FeatureCard = ({ icon, title, desc, delay }) => {
-  return (
+const FeatureCard = ({ icon, title, desc, delay, to }) => {
+  const cardBody = (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className="bg-gradient-to-br from-white via-[#92d5d8] to-[#4db9dc]  p-10 rounded-[2.5rem] group relative overflow-hidden transition-all duration-500 hover:-translate-y-1 shadow-md hover:shadow-xl cursor-pointer flex flex-col h-full"
+      className="bg-gradient-to-br from-white via-[#92d5d8] to-[#4db9dc] p-10 rounded-[2.5rem] group relative overflow-hidden transition-all duration-500 hover:-translate-y-1 shadow-md hover:shadow-xl cursor-pointer flex flex-col h-full"
     >
-      <div className="mb-8 w-14 h-14 rounded-full bg-black flex items-center justify-center shadow-sm group-hover:scale-110 transition-colors duration-500 border border-white/10 text-white">
+      <div className="mb-8 w-14 h-14 rounded-full bg-black flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-500 border border-white/10 text-white">
         {React.cloneElement(icon, { className: "transition-colors" })}
       </div>
-      <h3 className="text-xl font-bold mb-4 tracking-tight text-black leading-tight">{title}</h3>
+      <h3 className="text-xl font-bold mb-4 tracking-tight text-black leading-tight group-hover:underline">{title}</h3>
       <p className="text-black/70 font-medium leading-relaxed flex-grow">{desc}</p>
     </motion.div>
   );
+
+  if (to) {
+    return (
+      <Link to={to} className="block h-full">
+        {cardBody}
+      </Link>
+    );
+  }
+
+  return cardBody;
 };
