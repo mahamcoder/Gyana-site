@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -6,11 +6,15 @@ import {
   ShieldCheck, CheckCircle2
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { usePageMeta } from '../lib/seo';
 
 export const AILab = () => {
-  useEffect(() => {
-    document.title = 'Agentic AI for Financial Services | Gyanasarathi AI Lab';
-  }, []);
+  usePageMeta({
+    title: 'Agentic AI for Financial Services | Gyanasarathi AI Lab',
+    description: 'AI agents, fine-tuned financial LLMs and valuation APIs for investment teams, deployed privately with full audit trails. Book a discovery session.',
+    path: '/ai-lab',
+  });
+
 
   const aiLabSchema = {
     '@context': 'https://schema.org',

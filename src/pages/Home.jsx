@@ -6,6 +6,7 @@ import {
   Cpu, Activity, Globe, Box, Network, Quote, Star
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { usePageMeta } from '../lib/seo';
 import Ai from '../assets/image.png';
 import video1 from '../assets/video1.mp4';
 import video2 from '../assets/video2.mp4';
@@ -14,6 +15,12 @@ import blobVideo from '../assets/blob.webm';
 const SHOW_TESTIMONIALS = false;
 
 export const Home = () => {
+  usePageMeta({
+    title: 'CRE Financial Modeling and Agentic AI | Gyanasarathi',
+    description: 'Institutional-grade CRE underwriting, DCF and waterfall models, plus AI agents that automate financial analysis. Book a 30-minute strategy call.',
+    path: '/',
+  });
+
   const tickerItems = [
     "GYANASARATHI: FINANCIAL MODELING AND AGENTIC AI",
     "SERVING INSTITUTIONAL INVESTORS WORLDWIDE FROM INDIA"

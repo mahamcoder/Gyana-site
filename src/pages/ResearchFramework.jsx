@@ -1,74 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronRight, ArrowLeft, FileSpreadsheet, Download, ShieldCheck } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { usePageMeta } from '../lib/seo';
 import { frameworks } from '../data/research';
 
 export const ResearchFramework = () => {
   const { slug } = useParams();
   const framework = frameworks.find((item) => item.slug === slug);
 
-  useEffect(() => {
-    if (!framework) {
-      document.title = 'Framework Not Found | Gyanasarathi';
-      return;
-    }
-
-    document.title = `${framework.title} | Gyanasarathi`;
-
-    // Meta description
-    let descMeta = document.querySelector('meta[name="description"]');
-    const prevDesc = descMeta ? descMeta.getAttribute('content') : '';
-    if (descMeta) {
-      descMeta.setAttribute('content', framework.summary);
-    }
-
-    // Canonical link
-    let canonicalLink = document.querySelector('link[rel="canonical"]');
-    const prevCanonical = canonicalLink ? canonicalLink.getAttribute('href') : '';
-    const currentCanonical = `https://gyanasarathi.com/research/frameworks/${slug}`;
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonicalLink);
-    }
-    canonicalLink.setAttribute('href', currentCanonical);
-
-    // Robots meta: noindex, follow while page is a placeholder
-    // TODO(remove noindex when real content is published)
-    let robotsMeta = document.querySelector('meta[name="robots"]');
-    const createdRobots = !robotsMeta;
-    const prevRobots = robotsMeta ? robotsMeta.getAttribute('content') : null;
-    if (!robotsMeta) {
-      robotsMeta = document.createElement('meta');
-      robotsMeta.setAttribute('name', 'robots');
-      document.head.appendChild(robotsMeta);
-    }
-    robotsMeta.setAttribute('content', 'noindex, follow');
-
-    return () => {
-      if (descMeta && prevDesc) {
-        descMeta.setAttribute('content', prevDesc);
-      }
-      if (canonicalLink) {
-        if (prevCanonical) {
-          canonicalLink.setAttribute('href', prevCanonical);
-        } else {
-          canonicalLink.remove();
-        }
-      }
-      if (robotsMeta) {
-        if (createdRobots) {
-          robotsMeta.remove();
-        } else if (prevRobots !== null) {
-          robotsMeta.setAttribute('content', prevRobots);
-        } else {
-          robotsMeta.remove();
-        }
-      }
-    };
-  }, [framework, slug]);
+  // TODO(remove noindex when real content is published)
+  usePageMeta({
+    title: framework ? `${framework.title} | Gyanasarathi` : 'Framework Not Found | Gyanasarathi',
+    description: framework ? framework.summary : 'The institutional framework you are looking for does not exist.',
+    path: `/research/frameworks/${slug}`,
+    noindex: true,
+  });
 
   if (!framework) {
     return (

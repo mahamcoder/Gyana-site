@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Search, LineChart, Cpu, Presentation } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { usePageMeta } from '../lib/seo';
 
 export const AboutGP = () => {
-  useEffect(() => {
-    document.title = 'About Gyanasarathi | CRE Modeling Meets Agentic AI';
-  }, []);
+  usePageMeta({
+    title: 'About Gyanasarathi | CRE Modeling Meets Agentic AI',
+    description: 'Meet the founder behind Gyanasarathi: 7+ years of institutional CRE underwriting, an MBA in finance and analytics, and AI built in-house. Book a call.',
+    path: '/about',
+  });
+
 
   const aboutSchema = {
     '@context': 'https://schema.org',

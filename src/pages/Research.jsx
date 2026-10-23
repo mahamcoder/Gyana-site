@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -6,19 +6,23 @@ import {
   ArrowUpRight, Globe2, LayoutTemplate, Layers, ChevronRight, Activity, Cpu
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { usePageMeta } from '../lib/seo';
 import { frameworks, articles } from '../data/research';
 
 export const Research = () => {
-  useEffect(() => {
-    document.title = 'Real Estate and Capital Markets Research | Gyanasarathi';
-  }, []);
+  usePageMeta({
+    title: 'Real Estate and Capital Markets Research | Gyanasarathi',
+    description: 'Macro reports, cap rate analysis and downloadable financial modeling frameworks for institutional real estate investors. Browse the Research Vault.',
+    path: '/research',
+  });
+
 
   const researchSchema = {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'CollectionPage',
-        '@id': 'https://gyanasarathi.com/research#collectionpage',
+        '@id': 'https://gyanasarathi.com/research#webpage',
         'url': 'https://gyanasarathi.com/research',
         'name': 'Real Estate and Capital Markets Research | Gyanasarathi',
         'description':
@@ -37,20 +41,6 @@ export const Research = () => {
             'name': article.title,
             'url': `https://gyanasarathi.com/research/articles/${article.slug}`,
           })),
-        },
-      },
-      {
-        '@type': 'WebPage',
-        '@id': 'https://gyanasarathi.com/research#webpage',
-        'url': 'https://gyanasarathi.com/research',
-        'name': 'Real Estate and Capital Markets Research | Gyanasarathi',
-        'description':
-          'The Gyanasarathi Research Vault publishes macro reports, real estate cap rate and capital flow analysis, and research on AI in finance for capital allocators. Downloads include a WACC model, a due diligence checklist and infrastructure templates with LP/GP waterfalls. Each piece uses the methods Gyanasarathi applies on live client mandates.',
-        'isPartOf': {
-          '@id': 'https://gyanasarathi.com/#website',
-        },
-        'about': {
-          '@id': 'https://gyanasarathi.com/#organization',
         },
       },
       {

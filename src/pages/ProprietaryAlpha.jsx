@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -7,11 +7,14 @@ import {
   TrendingUp, CheckCircle2, ChevronRight
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { usePageMeta } from '../lib/seo';
 
 export const ProprietaryAlpha = () => {
-  useEffect(() => {
-    document.title = 'Private AI Models for Investment Firms | Gyanasarathi';
-  }, []);
+  usePageMeta({
+    title: 'Private AI Models for Investment Firms | Gyanasarathi',
+    description: 'Proprietary Alpha trains a private AI model on your trades, valuation models and risk rules, isolated from other clients. Request a private demo.',
+    path: '/alpha',
+  });
 
   const alphaSchema = {
     '@context': 'https://schema.org',

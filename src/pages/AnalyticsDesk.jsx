@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -6,11 +6,15 @@ import {
   ArrowRight, ChevronRight, CheckCircle2
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { usePageMeta } from '../lib/seo';
 
 export const AnalyticsDesk = () => {
-  useEffect(() => {
-    document.title = 'Real Estate Financial Modeling Services | Gyanasarathi';
-  }, []);
+  usePageMeta({
+    title: 'Real Estate Financial Modeling Services | Gyanasarathi',
+    description: 'Acquisition, development and LP/GP waterfall models, DCF and LBO valuation, and M&A due diligence, built to institutional standards. Book a call.',
+    path: '/analytics',
+  });
+
 
   const analyticsSchema = {
     '@context': 'https://schema.org',

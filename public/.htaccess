@@ -1,0 +1,32 @@
+# Gyanasarathi .htaccess for Hostinger / LiteSpeed
+#
+# Two options are provided:
+#
+# OPTION A (active): Prerendered flat files.
+#   The build outputs about.html, analytics.html, etc.
+#   LiteSpeed serves them directly. Unknown URLs get 404.html.
+#
+# OPTION B (commented out): SPA fallback.
+#   Use this only if prerendering is not deployed. Every route
+#   falls back to index.html and React Router handles it client-side.
+# -------------------------------------------------------------------
+
+# OPTION A — Prerendered flat files (active)
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ /$1.html [L]
+</IfModule>
+ErrorDocument 404 /404.html
+
+# OPTION B — SPA fallback (use this only if prerendering is not deployed)
+# <IfModule mod_rewrite.c>
+# RewriteEngine On
+# RewriteBase /
+# RewriteRule ^index\.html$ - [L]
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule . /index.html [L]
+# </IfModule>

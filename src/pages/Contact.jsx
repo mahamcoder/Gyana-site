@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useSearchParams } from 'react-router-dom';
 import { CalendarDays, ShieldCheck, Mail, MapPin, Clock } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { usePageMeta } from '../lib/seo';
 
 const TOPIC_MAP = {
   'modeling': 'Real Estate Financial Modeling',
@@ -12,6 +13,12 @@ const TOPIC_MAP = {
 };
 
 export const Contact = () => {
+  usePageMeta({
+    title: 'Contact Gyanasarathi | Book a Modeling or AI Strategy Call',
+    description: 'Share your mandate and a specialist replies within two business hours. Confidential by default, for modeling, due diligence and AI projects.',
+    path: '/contact',
+  });
+
   const [searchParams] = useSearchParams();
   const topicParam = searchParams.get('topic');
 
@@ -27,40 +34,6 @@ export const Contact = () => {
   const [result, setResult] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
 
-  useEffect(() => {
-    document.title = 'Contact Gyanasarathi | Book a Modeling or AI Strategy Call';
-
-    let descMeta = document.querySelector('meta[name="description"]');
-    const prevDesc = descMeta ? descMeta.getAttribute('content') : '';
-    if (descMeta) {
-      descMeta.setAttribute(
-        'content',
-        'Share your mandate and a specialist replies within two business hours. Confidential by default, for modeling, due diligence and AI projects.'
-      );
-    }
-
-    let canonicalLink = document.querySelector('link[rel="canonical"]');
-    const prevCanonical = canonicalLink ? canonicalLink.getAttribute('href') : '';
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonicalLink);
-    }
-    canonicalLink.setAttribute('href', 'https://gyanasarathi.com/contact');
-
-    return () => {
-      if (descMeta && prevDesc) {
-        descMeta.setAttribute('content', prevDesc);
-      }
-      if (canonicalLink) {
-        if (prevCanonical) {
-          canonicalLink.setAttribute('href', prevCanonical);
-        } else {
-          canonicalLink.remove();
-        }
-      }
-    };
-  }, []);
 
   const contactSchema = {
     '@context': 'https://schema.org',

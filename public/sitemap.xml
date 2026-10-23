@@ -7,5 +7,5 @@
 <url><loc>https://gyanasarathi.com/alpha</loc></url>
 <url><loc>https://gyanasarathi.com/research</loc></url>
 <url><loc>https://gyanasarathi.com/contact</loc></url>
-<!-- Note: Placeholder detail URLs (/research/articles/* and /research/frameworks/*) should only be added after real content is published. -->
+<!-- Do NOT add /research/articles/* or /research/frameworks/* URLs until real content is published -->
 </urlset>
