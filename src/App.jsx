@@ -9,6 +9,8 @@ import { AnalyticsDesk } from './pages/AnalyticsDesk';
 import { AILab } from './pages/AILab';
 import { ProprietaryAlpha } from './pages/ProprietaryAlpha';
 import { Research } from './pages/Research';
+import { ResearchArticle } from './pages/ResearchArticle';
+import { ResearchFramework } from './pages/ResearchFramework';
 import { Contact } from './pages/Contact';
 
 const ScrollLayout = ({ children }) => {
@@ -49,6 +51,8 @@ function App() {
               <Route path="/ai-lab" element={<AILab />} />
               <Route path="/alpha" element={<ProprietaryAlpha />} />
               <Route path="/research" element={<Research />} />
+              <Route path="/research/articles/:slug" element={<ResearchArticle />} />
+              <Route path="/research/frameworks/:slug" element={<ResearchFramework />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>

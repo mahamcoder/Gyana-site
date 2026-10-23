@@ -4,30 +4,35 @@ export const frameworks = [
     title: 'WACC and Capital Structure Model',
     summary: 'Excel model for WACC, capital stack analysis and debt-to-equity sizing.',
     category: 'Modeling Framework',
+    badge: 'XLSX',
   },
   {
     slug: 'due-diligence-checklist',
     title: '40-Point Due Diligence Checklist',
     summary: 'A standard checklist for M&A, equity placement and real estate due diligence.',
     category: 'Diligence Framework',
+    badge: 'XLSX',
   },
   {
     slug: 'energy-infrastructure-valuation-templates',
     title: 'Energy and Infrastructure Valuation Templates',
     summary: 'Templates for long-duration energy and infrastructure assets, with phased LP/GP waterfall distributions.',
     category: 'Valuation Framework',
+    badge: 'XLSX',
   },
   {
     slug: 'asset-management-kpi-dashboard',
     title: 'Asset Management KPI Dashboard',
     summary: 'Pre-built KPI dashboards with yield, occupancy and budget-versus-actual tracking for asset managers.',
     category: 'Reporting Framework',
+    badge: 'XLSX',
   },
   {
     slug: 'portfolio-stress-test-framework',
     title: 'Portfolio Stress-Test Framework',
     summary: 'Scenario and probability tools that stress-test a portfolio and size its downside risk.',
     category: 'Risk Framework',
+    badge: 'XLSX',
   },
 ];
 
