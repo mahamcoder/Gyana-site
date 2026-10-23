@@ -10,7 +10,7 @@ export const Navbar = () => {
 
   const navLinks = [
     { label: 'Home', path: '/' },
-    { label: 'About GP', path: '/about' },
+    { label: 'About', path: '/about' },
     { label: 'Analytics Desk', path: '/analytics' },
     { label: 'AI Lab', path: '/ai-lab' },
     { label: 'Proprietary Alpha', path: '/alpha' },
@@ -43,7 +43,7 @@ export const Navbar = () => {
               <Link to="/" className="group flex items-center ml-2">
                 <img
                   src="/logo.png"
-                  alt="GyanSarathi"
+                  alt="Gyanasarathi"
                   className="h-10 md:h-12 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80"
                  
                 />
