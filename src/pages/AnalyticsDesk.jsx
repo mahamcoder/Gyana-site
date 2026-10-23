@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -8,10 +8,106 @@ import {
 import { Button } from '../components/ui/Button';
 
 export const AnalyticsDesk = () => {
+  useEffect(() => {
+    document.title = 'Real Estate Financial Modeling Services | Gyanasarathi';
+  }, []);
+
+  const analyticsSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        '@id': 'https://gyanasarathi.com/analytics#service',
+        'name': 'Real Estate Financial Modeling',
+        'serviceType': 'Financial modeling and underwriting',
+        'description':
+          "Gyanasarathi's Analytics Desk provides institutional real estate financial modeling. It covers acquisition underwriting, development pro formas, DCF and LBO valuation, and LP/GP waterfall models with preferred return, catch-up and promote tiers. Analysts build every model, AI agents check every input, and each file is documented for investment committee review.",
+        'url': 'https://gyanasarathi.com/analytics',
+        'provider': {
+          '@id': 'https://gyanasarathi.com/#organization',
+        },
+        'areaServed': 'Worldwide',
+        'hasOfferCatalog': {
+          '@type': 'OfferCatalog',
+          'name': 'Analytics Desk services',
+          'itemListElement': [
+            {
+              '@type': 'Offer',
+              'itemOffered': {
+                '@type': 'Service',
+                'name': 'Valuation and DCF Modeling',
+              },
+            },
+            {
+              '@type': 'Offer',
+              'itemOffered': {
+                '@type': 'Service',
+                'name': 'M&A Due Diligence and Risk Analysis',
+              },
+            },
+            {
+              '@type': 'Offer',
+              'itemOffered': {
+                '@type': 'Service',
+                'name': 'Asset Management and Investor Reporting',
+              },
+            },
+            {
+              '@type': 'Offer',
+              'itemOffered': {
+                '@type': 'Service',
+                'name': 'Executive Dashboards and Market Intelligence',
+              },
+            },
+          ],
+        },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': 'https://gyanasarathi.com/analytics#webpage',
+        'url': 'https://gyanasarathi.com/analytics',
+        'name': 'Real Estate Financial Modeling Services | Gyanasarathi',
+        'description':
+          "Gyanasarathi's Analytics Desk provides institutional real estate financial modeling. It covers acquisition underwriting, development pro formas, DCF and LBO valuation, and LP/GP waterfall models with preferred return, catch-up and promote tiers. Analysts build every model, AI agents check every input, and each file is documented for investment committee review.",
+        'isPartOf': {
+          '@id': 'https://gyanasarathi.com/#website',
+        },
+        'about': {
+          '@id': 'https://gyanasarathi.com/#organization',
+        },
+        'mainEntity': {
+          '@id': 'https://gyanasarathi.com/analytics#service',
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Home',
+            'item': 'https://gyanasarathi.com/',
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': 'Analytics Desk',
+            'item': 'https://gyanasarathi.com/analytics',
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="w-full overflow-hidden bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(analyticsSchema) }}
+      />
+
       {/* SECTION 1 — HERO */}
-      <section className="relative min-h-[60vh] flex flex-col justify-center px-6 pt-40 pb-24 bg-blue-100 overflow-hidden relative z-10 border-b border-black/5">
+      <section className="relative min-h-[60vh] flex flex-col justify-center px-6 pt-40 pb-24 bg-blue-100 overflow-hidden z-10 border-b border-black/5">
         {/* Subtle Background Mesh / Abstract Grids */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-black/[0.04] via-transparent to-transparent pointer-events-none"></div>
         <svg className="absolute inset-0 w-full h-full opacity-[0.02] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
@@ -21,21 +117,24 @@ export const AnalyticsDesk = () => {
 
         <div className="container mx-auto max-w-5xl text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-6 inline-block">The Analytics Desk</span>
+            <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-6 inline-block">THE ANALYTICS DESK</span>
             <h1 className="text-4xl md:text-[4rem] font-medium tracking-tighter text-black leading-[1.05] mb-8">
-              We Speak the Language of Capital <br className="hidden md:block" />
-              <span className="text-gray-400">We Build the Tools to
-                Execute It.</span>
+              Real Estate Financial Modeling, <br className="hidden md:block" />
+              <span className="text-gray-400">Built to Institutional Standards.</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed mb-10">
-              The Analytics Desk combines institutional finance with AI modeling, delivering decision-driven analysis across sectors like energy valuations and REIT diagnostics not just reports.
+              The Analytics Desk builds acquisition, development and fund-level models for real estate and infrastructure investors, with{' '}
+              <Link to="/ai-lab" className="text-black underline hover:text-sapforce-accent transition-colors">
+                AI checks
+              </Link>{' '}
+              on every input and output.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="#services">
-                <Button variant="primary" className="w-full sm:w-auto px-8 py-4">View Our Service Suite</Button>
-              </Link>
+              <a href="#services">
+                <Button variant="primary" className="w-full sm:w-auto px-8 py-4">View Modeling Services</Button>
+              </a>
               <Link to="/contact">
-                <Button variant="secondary" className="w-full sm:w-auto px-8 py-4 text-black border-black/10 hover:border-black">Request a Consultation Call</Button>
+                <Button variant="secondary" className="w-full sm:w-auto px-8 py-4 text-black border-black/10 hover:border-black">Book a Strategy Call</Button>
               </Link>
             </div>
           </motion.div>
@@ -46,78 +145,75 @@ export const AnalyticsDesk = () => {
       <section id="services" className="py-24 md:py-32 bg-white relative z-10 scroll-mt-20">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center md:text-left mb-16">
-            <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-4 inline-block">Our Core Service Offerings</span>
+            <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-4 inline-block">OUR CORE SERVICE OFFERINGS</span>
             <h2 className="text-3xl md:text-[3.25rem] font-medium tracking-tighter text-black leading-none">
-              What the
-              Analytics Desk Delivers
+              Our Financial Modeling Services
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {/* Card 1 */}
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="bg-gradient-to-br from-white via-[#92d5d8] to-[#4db9dc]  p-10 md:p-12 rounded-[2.5rem] group relative overflow-hidden transition-all duration-500 hover:-translate-y-1 shadow-sm hover:shadow-xl cursor-pointer flex flex-col h-full">
-              <div className="mb-8 w-14 h-14 rounded-full bg-black flex items-center justify-center shadow-sm group-hover:scale-110 transition-colors duration-500 border border-white/10 text-white">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="bg-gradient-to-br from-white via-[#92d5d8] to-[#4db9dc] p-10 md:p-12 rounded-[2.5rem] group relative overflow-hidden transition-all duration-500 hover:-translate-y-1 shadow-sm hover:shadow-xl flex flex-col h-full">
+              <div className="mb-8 w-14 h-14 rounded-full bg-black flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-500 border border-white/10 text-white">
                 <PieChart size={22} className="transition-colors" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 tracking-tight text-black leading-tight">Advanced
-                Valuation
-                Support</h3>
+              <h3 className="text-2xl font-bold mb-4 tracking-tight text-black leading-tight">
+                Valuation and DCF Modeling
+              </h3>
               <p className="text-black/70 font-medium leading-relaxed flex-grow mb-8 text-lg">
-                We build financial models for your biggest decisions, including DCF, LBO, comparable analysis and intrinsic valuation, all institutional-grade and stress-tested for real-world scenarios.
+                DCF, LBO, comparable and intrinsic valuation models for acquisitions and recapitalizations, stress-tested across interest rate, rent growth and exit cap rate scenarios.
               </p>
-              <div className="flex items-center text-sm font-bold text-black gap-2 group-hover:gap-3 transition-all relative z-10 w-fit">
+              <a href="#suite" className="flex items-center text-sm font-bold text-black gap-2 group-hover:gap-3 transition-all relative z-10 w-fit">
                 Learn More <ArrowRight size={16} />
-              </div>
+              </a>
             </motion.div>
 
             {/* Card 2 */}
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="bg-gradient-to-br from-white via-[#92d5d8] to-[#4db9dc]  p-10 md:p-12 rounded-[2.5rem] group relative overflow-hidden transition-all duration-500 hover:-translate-y-1 shadow-sm hover:shadow-xl cursor-pointer flex flex-col h-full">
-              <div className="mb-8 w-14 h-14 rounded-full bg-black flex items-center justify-center shadow-sm group-hover:scale-110 transition-colors duration-500 border border-white/10 text-white">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="bg-gradient-to-br from-white via-[#92d5d8] to-[#4db9dc] p-10 md:p-12 rounded-[2.5rem] group relative overflow-hidden transition-all duration-500 hover:-translate-y-1 shadow-sm hover:shadow-xl flex flex-col h-full">
+              <div className="mb-8 w-14 h-14 rounded-full bg-black flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-500 border border-white/10 text-white">
                 <Search size={22} className="transition-colors" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 tracking-tight text-black leading-tight">M and A Due
-                Diligence and
-                Risk Analysis</h3>
+              <h3 className="text-2xl font-bold mb-4 tracking-tight text-black leading-tight">
+                M&A Due Diligence and Risk Analysis
+              </h3>
               <p className="text-black/70 font-medium leading-relaxed flex-grow mb-8 text-lg">
-                Before any deal closes, we perform thorough due diligence assessing financial health, uncovering hidden risks and protecting capital in M&A and equity transactions.
+                Before a deal closes, we check financial statements, rent rolls, leases and debt terms, then run downside cases, so risks surface before capital moves.
               </p>
-              <div className="flex items-center text-sm font-bold text-black gap-2 group-hover:gap-3 transition-all relative z-10 w-fit">
+              <a href="#suite" className="flex items-center text-sm font-bold text-black gap-2 group-hover:gap-3 transition-all relative z-10 w-fit">
                 Learn More <ArrowRight size={16} />
-              </div>
+              </a>
             </motion.div>
 
             {/* Card 3 */}
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} className="bg-gradient-to-br from-white via-[#92d5d8] to-[#4db9dc]  p-10 md:p-12 rounded-[2.5rem] group relative overflow-hidden transition-all duration-500 hover:-translate-y-1 shadow-sm hover:shadow-xl cursor-pointer flex flex-col h-full">
-              <div className="mb-8 w-14 h-14 rounded-full bg-black flex items-center justify-center shadow-sm group-hover:scale-110 transition-all duration-500 border border-white/10 text-white">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} className="bg-gradient-to-br from-white via-[#92d5d8] to-[#4db9dc] p-10 md:p-12 rounded-[2.5rem] group relative overflow-hidden transition-all duration-500 hover:-translate-y-1 shadow-sm hover:shadow-xl flex flex-col h-full">
+              <div className="mb-8 w-14 h-14 rounded-full bg-black flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-500 border border-white/10 text-white">
                 <Building size={22} className="transition-colors" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 tracking-tight text-black leading-tight">Asset
-                Management
-                and Investor
-                Relations</h3>
+              <h3 className="text-2xl font-bold mb-4 tracking-tight text-black leading-tight">
+                Asset Management and Investor Reporting
+              </h3>
               <p className="text-black/70 font-medium leading-relaxed flex-grow mb-8 text-lg">
-                We manage your portfolio with institutional discipline, optimizing performance, tracking yield, and delivering investor-ready reporting and insights.
+                We support asset managers with budget-versus-actual tracking, yield and covenant monitoring, and quarterly reports ready to send to LPs.
               </p>
-              <div className="flex items-center text-sm font-bold text-black gap-2 group-hover:gap-3 transition-all relative z-10 w-fit">
+              <a href="#suite" className="flex items-center text-sm font-bold text-black gap-2 group-hover:gap-3 transition-all relative z-10 w-fit">
                 Learn More <ArrowRight size={16} />
-              </div>
+              </a>
             </motion.div>
 
             {/* Card 4 */}
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }} className="bg-gradient-to-br from-white via-[#92d5d8] to-[#4db9dc] p-10 md:p-12 rounded-[2.5rem] group relative overflow-hidden transition-all duration-500 hover:-translate-y-1 shadow-sm hover:shadow-xl cursor-pointer flex flex-col h-full">
-              <div className="mb-8 w-14 h-14 rounded-full bg-black flex items-center justify-center shadow-sm group-hover:scale-110 transition-all duration-500 border border-white/10 text-white">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }} className="bg-gradient-to-br from-white via-[#92d5d8] to-[#4db9dc] p-10 md:p-12 rounded-[2.5rem] group relative overflow-hidden transition-all duration-500 hover:-translate-y-1 shadow-sm hover:shadow-xl flex flex-col h-full">
+              <div className="mb-8 w-14 h-14 rounded-full bg-black flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-500 border border-white/10 text-white">
                 <LineChart size={22} className="transition-colors" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 tracking-tight text-black leading-tight">Executive 
-Reporting and 
-Market 
-Intelligence</h3>
+              <h3 className="text-2xl font-bold mb-4 tracking-tight text-black leading-tight">
+                Executive Dashboards and Market Intelligence
+              </h3>
               <p className="text-black/70 font-medium leading-relaxed flex-grow mb-8 text-lg">
-                Good decisions start with great information. We build dynamic C-suite dashboards with decision-grade KPIs and market intelligence, giving leadership a single source of truth.
+                We build C-suite dashboards that combine portfolio KPIs with market data, so leadership reviews one source of truth instead of scattered spreadsheets.
               </p>
-              <div className="flex items-center text-sm font-bold text-black gap-2 group-hover:gap-3 transition-all relative z-10 w-fit">
+              <a href="#suite" className="flex items-center text-sm font-bold text-black gap-2 group-hover:gap-3 transition-all relative z-10 w-fit">
                 Learn More <ArrowRight size={16} />
-              </div>
+              </a>
             </motion.div>
           </div>
         </div>
@@ -128,27 +224,30 @@ Intelligence</h3>
         <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-black/[0.02] to-transparent pointer-events-none"></div>
         <div className="container mx-auto px-6 max-w-7xl text-center md:text-left relative z-10">
           <div className="mb-16">
-            <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-4 inline-block">Sectors We Serve</span>
+            <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-4 inline-block">SECTORS WE SERVE</span>
             <h2 className="text-3xl md:text-[3.25rem] font-medium tracking-tighter text-black leading-[1.05] max-w-3xl">
-             From Energy to
-Investment Banking: We Know Your Industry
+              From Real Estate to Energy: The Sectors We Model
             </h2>
           </div>
 
           <div className="flex flex-wrap gap-4 md:gap-5 justify-center md:justify-start">
             {[
-              "Energy, Oil & Gas",
-              "Infrastructure & Utilities",
-              "Investment Banking: Real Estate and Infrastructure Groups",
-              "Real Estate Investment Trusts and Publicly Traded Real Estate",
-              "Hospitality, Leisure and Property Management",
-              "Banking and Mortgage Services",
-              "Real Estate Financial Analytics and Acquisitions"
+              'Real Estate Private Equity',
+              'REITs and Listed Real Estate',
+              'Multifamily, Hospitality and Mixed-Use',
+              'Real Estate and Infrastructure Banking',
+              'Infrastructure and Utilities',
+              'Energy, Oil and Gas',
+              'Lending and Mortgage Finance',
+              'Corporate Finance: Healthcare to Manufacturing'
             ].map((sector, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.05 }}
-                className="bg-gradient-to-br from-white via-[#92d5d8] to-[#4db9dc]  rounded-full px-6 py-4 shadow-sm flex items-center gap-3"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="bg-gradient-to-br from-white via-[#92d5d8] to-[#4db9dc] rounded-full px-6 py-4 shadow-sm flex items-center gap-3"
               >
                 <div className="w-2 h-2 rounded-full bg-sapforce-accent shadow-sm"></div>
                 <span className="text-black font-semibold tracking-tight">{sector}</span>
@@ -159,33 +258,47 @@ Investment Banking: We Know Your Industry
       </section>
 
       {/* SECTION 4 — SPECIALIZED DEEP CAPABILITY BLOCK & STRATEGIC FLOW */}
-      <section className="py-24 md:py-32 bg-white relative z-10">
+      <section id="suite" className="py-24 md:py-32 bg-white relative z-10 scroll-mt-20">
         <div className="container mx-auto px-6 max-w-7xl">
 
           {/* Deep Capability Split Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center mb-32">
             <motion.div className="lg:col-span-5" initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-              <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-4 inline-block">Specialized Capability</span>
+              <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-4 inline-block">SPECIALIZED CAPABILITY</span>
               <h2 className="text-xl md:text-[2rem] font-medium tracking-tighter text-black leading-[1.05] mb-8">
-               Real Estate Financial Intelligence Suite for institutional-grade precision.
+                Real Estate Financial Intelligence Suite: From Underwriting to Waterfall
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-10 font-medium">
-                Real estate capital transactions are complex, so our Real Estate Financial Intelligence Suite delivers institutional-grade precision across the deal lifecycle from underwriting to waterfall distributions turning complexity into closed deals.
+                Gyanasarathi's Analytics Desk provides institutional real estate financial modeling. It covers acquisition underwriting, development pro formas, DCF and LBO valuation, and LP/GP waterfall models with preferred return, catch-up and promote tiers. Analysts build every model, AI agents check every input, and each file is documented for investment committee review.
               </p>
 
               <ul className="space-y-4">
-                {[
-                  "Complex acquisition modeling and feasibility analysis",
-                  "Ground-up development pro forma and phased funding analysis",
-                  "CMulti-layer cash flow structuring and distribution modeling",
-                  "LP and GP waterfall structuring with preferred return frameworks",
-                  "Asset-level underwriting for individual properties and portfolio acquisitions"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-4">
-                    <CheckCircle2 size={20} className="text-gray-400" />
-                    <span className="text-black font-semibold">{item}</span>
-                  </li>
-                ))}
+                <li className="flex items-center gap-4">
+                  <CheckCircle2 size={20} className="text-gray-400 shrink-0" />
+                  <span className="text-black font-semibold">Acquisition modeling and feasibility analysis</span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <CheckCircle2 size={20} className="text-gray-400 shrink-0" />
+                  <span className="text-black font-semibold">Ground-up development pro forma and phased funding analysis</span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <CheckCircle2 size={20} className="text-gray-400 shrink-0" />
+                  <span className="text-black font-semibold">Multi-tier cash flow structuring and distribution modeling</span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <CheckCircle2 size={20} className="text-gray-400 shrink-0" />
+                  <span className="text-black font-semibold">
+                    <Link to="/research" className="underline hover:text-sapforce-accent transition-colors">
+                      LP/GP waterfall models
+                    </Link>{' '}
+                    with preferred return, catch-up and promote tiers
+                    {/* TODO: later point to the Energy and Infrastructure Valuation Templates page in the Research Vault */}
+                  </span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <CheckCircle2 size={20} className="text-gray-400 shrink-0" />
+                  <span className="text-black font-semibold">Asset-level underwriting for individual properties and portfolio acquisitions</span>
+                </li>
               </ul>
             </motion.div>
 
@@ -199,26 +312,26 @@ Investment Banking: We Know Your Industry
               <div className="flex flex-col md:flex-row gap-4 items-center justify-center relative w-full h-full max-w-xl text-center">
                 <div className="bg-white border border-black/10 rounded-2xl p-6 shadow-sm flex-1 w-full relative z-10 hover:-translate-y-1 transition-transform">
                   <div className="text-[10px] font-black tracking-widest text-gray-400 mb-2">PHASE 1</div>
-                  <div className="text-lg font-bold text-black">Capital</div>
+                  <div className="text-lg font-bold text-black">Inputs</div>
                 </div>
-                <ChevronRight size={24} className="text-gray-300 hidden md:block" />
+                <ChevronRight size={24} className="text-gray-300 hidden md:block shrink-0" />
 
                 <div className="bg-white border border-black/10 rounded-2xl p-6 shadow-sm flex-1 w-full relative z-10 hover:-translate-y-1 transition-transform">
                   <div className="text-[10px] font-black tracking-widest text-gray-400 mb-2">PHASE 2</div>
                   <div className="text-lg font-bold text-black">Modeling</div>
                 </div>
-                <ChevronRight size={24} className="text-gray-300 hidden md:block" />
+                <ChevronRight size={24} className="text-gray-300 hidden md:block shrink-0" />
 
                 <div className="bg-sapforce-dark border border-white/10 rounded-2xl p-6 shadow-sm flex-1 w-full relative z-10 transform md:scale-110 hover:-translate-y-1 transition-transform">
                   <div className="text-[10px] font-black tracking-widest text-sapforce-accent mb-2">PHASE 3</div>
-                  <div className="text-lg font-bold text-white">AI Analysis</div>
+                  <div className="text-lg font-bold text-white">AI Review</div>
                   <div className="absolute top-0 right-0 w-16 h-16 bg-sapforce-accent blur-xl opacity-20 rounded-full"></div>
                 </div>
-                <ChevronRight size={24} className="text-gray-300 hidden md:block" />
+                <ChevronRight size={24} className="text-gray-300 hidden md:block shrink-0" />
 
                 <div className="bg-white border border-black/10 rounded-2xl p-6 shadow-sm flex-1 w-full relative z-10 hover:-translate-y-1 transition-transform">
                   <div className="text-[10px] font-black tracking-widest text-gray-400 mb-2">PHASE 4</div>
-                  <div className="text-lg font-bold text-black leading-tight">Investment Output</div>
+                  <div className="text-lg font-bold text-black leading-tight">Decision Pack</div>
                 </div>
               </div>
             </motion.div>
@@ -230,11 +343,11 @@ Investment Banking: We Know Your Industry
 
             <div className="flex flex-col md:flex-row justify-between relative z-10 gap-12 md:gap-4 items-center md:items-start max-w-5xl mx-auto">
               {[
-                { num: "01", title: "Data Ingestion" },
-                { num: "02", title: "Financial Modeling" },
-                { num: "03", title: "AI-Assisted Analysis" },
-                { num: "04", title: "Risk Optimization" },
-                { num: "05", title: "Investment Output" }
+                { num: '01', title: 'Data Ingestion' },
+                { num: '02', title: 'Financial Modeling' },
+                { num: '03', title: 'Agentic AI Review' },
+                { num: '04', title: 'Scenario Testing' },
+                { num: '05', title: 'Decision Pack' }
               ].map((step, idx) => (
                 <div key={idx} className="flex flex-col items-center text-center relative group w-full">
                   {/* Connecting line for desktop */}
@@ -267,8 +380,8 @@ Investment Banking: We Know Your Industry
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="rounded-[2.5rem]  p-10 md:p-20 text-center relative overflow-hidden shadow-xl"
-            style={{ background: "linear-gradient(to bottom right, #ffffff, #92d5d8, #4db9dc)" }}
+            className="rounded-[2.5rem] p-10 md:p-20 text-center relative overflow-hidden shadow-xl"
+            style={{ background: 'linear-gradient(to bottom right, #ffffff, #92d5d8, #4db9dc)' }}
           >
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sapforce-accent/10 via-transparent to-transparent opacity-60"></div>
 
@@ -281,18 +394,13 @@ Investment Banking: We Know Your Industry
                 Every Complex Deal Deserves <br className="hidden md:block" /><span className="text-gray-400">a Sharper Analytical Edge</span>
               </h2>
               <p className="text-lg md:text-xl text-gray-500 mb-10 max-w-2xl mx-auto">
-                Talk to our financial modeling team about your current 
-mandate. We match the right analytical framework to 
-your exact challenge and deliver results at the speed 
-your decisions require.
+                Talk to our financial modeling team about your current mandate. On the first call we scope the model, the timeline and the review steps.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact">
-                  <Button variant="secondary" className="w-full sm:w-auto px-8 py-4">Schedule Strategic Call</Button>
+                  <Button variant="secondary" className="w-full sm:w-auto px-8 py-4">Book a Strategy Call</Button>
                 </Link>
-                <Link to="#portal">
-                  <Button variant="secondary" className="w-full sm:w-auto px-8 py-4 text-black border-black/10 hover:border-black bg-white/50 backdrop-blur-md">Access your Client Portal</Button>
-                </Link>
+                {/* TODO(confirm: client portal exists?): Hidden button until client portal exists */}
               </div>
             </div>
           </motion.div>
