@@ -22,7 +22,7 @@ export const AboutGP = () => {
         'url': 'https://gyanasarathi.com/about',
         'name': 'About Gyanasarathi | CRE Modeling Meets Agentic AI',
         'description':
-          'Gyanasarathi is led by founder Gyanasarathi. Gyan brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. Gyan also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.',
+          'Gyanasarathi is led by its founder. The founder brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. The founder also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.',
         'isPartOf': {
           '@id': 'https://gyanasarathi.com/#website',
         },
@@ -36,7 +36,7 @@ export const AboutGP = () => {
         'name': 'Gyanasarathi',
         'jobTitle': 'Founder',
         'description':
-          'Gyanasarathi is led by founder Gyanasarathi. Gyan brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. Gyan also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.',
+          'Gyanasarathi is led by its founder. The founder brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. The founder also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.',
         'worksFor': {
           '@id': 'https://gyanasarathi.com/#organization',
         },
@@ -107,16 +107,17 @@ export const AboutGP = () => {
                 Who Leads Gyanasarathi
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6 font-medium">
-                Gyanasarathi is led by founder{' '}
+                Gyanasarathi is led by its founder (
                 <a
                   href="https://www.linkedin.com/in/gyanasarathi/"
                   target="_blank"
                   rel="noreferrer"
                   className="text-black underline hover:text-sapforce-accent transition-colors"
                 >
-                  Gyanasarathi
+                  LinkedIn profile
                 </a>
-                . Gyan brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. Gyan also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.
+                ). The founder brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. The founder also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.
+                {/* TODO(confirm: founder full name; when the client gives it, restore "Gyanasarathi is led by founder <full name>. <First name> brings..." as in copy-rewrite.md) */}
               </p>
 
               <ul className="space-y-6">
