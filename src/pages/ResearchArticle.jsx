@@ -51,7 +51,7 @@ export const ResearchArticle = () => {
         'author': {
           '@type': 'Person',
           '@id': 'https://gyanasarathi.com/about#founder',
-          'name': 'Gyan [surname]',
+          'name': 'Gyanasarathi',
         },
         'publisher': {
           '@id': 'https://gyanasarathi.com/#organization',

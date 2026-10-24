@@ -22,7 +22,7 @@ export const AboutGP = () => {
         'url': 'https://gyanasarathi.com/about',
         'name': 'About Gyanasarathi | CRE Modeling Meets Agentic AI',
         'description':
-          'Gyanasarathi is led by founder Gyan [surname]. Gyan brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. Gyan also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.',
+          'Gyanasarathi is led by founder Gyanasarathi. Gyan brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. Gyan also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.',
         'isPartOf': {
           '@id': 'https://gyanasarathi.com/#website',
         },
@@ -33,10 +33,10 @@ export const AboutGP = () => {
       {
         '@type': 'Person',
         '@id': 'https://gyanasarathi.com/about#founder',
-        'name': 'Gyan [surname]',
+        'name': 'Gyanasarathi',
         'jobTitle': 'Founder',
         'description':
-          'Gyanasarathi is led by founder Gyan [surname]. Gyan brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. Gyan also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.',
+          'Gyanasarathi is led by founder Gyanasarathi. Gyan brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. Gyan also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.',
         'worksFor': {
           '@id': 'https://gyanasarathi.com/#organization',
         },
@@ -50,7 +50,7 @@ export const AboutGP = () => {
           'DCF and LP/GP waterfall modeling',
           'Agentic AI',
         ],
-        'sameAs': ['https://www.linkedin.com/in/[profile-handle]'],
+        'sameAs': ['https://www.linkedin.com/in/gyanasarathi/'],
       },
       {
         '@type': 'BreadcrumbList',
@@ -109,14 +109,13 @@ export const AboutGP = () => {
               <p className="text-lg text-gray-600 leading-relaxed mb-6 font-medium">
                 Gyanasarathi is led by founder{' '}
                 <a
-                  href="https://www.linkedin.com/in/[profile-handle]"
+                  href="https://www.linkedin.com/in/gyanasarathi/"
                   target="_blank"
                   rel="noreferrer"
                   className="text-black underline hover:text-sapforce-accent transition-colors"
                 >
-                  Gyan [surname]
+                  Gyanasarathi
                 </a>
-                {/* TODO(confirm): founder surname Gyan [surname] and LinkedIn profile handle */}
                 . Gyan brings 7+ years of institutional commercial real estate underwriting across industrial, office, retail, multifamily, hospitality, medical office and mixed-use assets. Gyan also holds an MBA in Finance and Business Analytics, builds AI systems and has scaled a knowledge-process outsourcing firm.
               </p>
 
