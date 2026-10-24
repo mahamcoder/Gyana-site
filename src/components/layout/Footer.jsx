@@ -54,7 +54,13 @@ export const Footer = () => {
         {/* Left: Logo */}
         <div className="mb-16 lg:mb-0 lg:w-1/4">
           <Link to="/" className="inline-block">
-            <div className="text-4xl md:text-5xl font-bold tracking-tighter text-white" style={{ textTransform: 'uppercase' }}>Gyanasarathi</div>
+            <img
+              src="/logo-white.png"
+              alt="Gyanasarathi"
+              width="1280"
+              height="234"
+              className="h-10 md:h-12 w-auto object-contain"
+            />
             <p className="text-sm text-gray-400 font-medium mt-3 max-w-[280px] leading-relaxed">
               Gyanasarathi is an India-based financial modeling and agentic AI firm.
             </p>

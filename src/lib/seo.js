@@ -75,6 +75,9 @@ export function usePageMeta({ title, description, path, noindex = false }) {
     const ogSiteName = getOrCreateMeta('property', 'og:site_name');
     ogSiteName.el.setAttribute('content', SITE_NAME);
 
+    const ogImage = getOrCreateMeta('property', 'og:image');
+    ogImage.el.setAttribute('content', `${SITE_URL}/og-image.png`);
+
     // Robots (noindex for placeholder pages only)
     let robotsInfo = null;
     if (noindex) {
@@ -103,7 +106,7 @@ export function usePageMeta({ title, description, path, noindex = false }) {
       else if (canon.prev !== null) canon.el.setAttribute('href', canon.prev);
 
       // Restore or remove OG tags
-      [ogTitle, ogDesc, ogUrl, ogType, ogSiteName].forEach((og) => {
+      [ogTitle, ogDesc, ogUrl, ogType, ogSiteName, ogImage].forEach((og) => {
         if (og.created) og.el.remove();
         else if (og.prev !== null) og.el.setAttribute('content', og.prev);
       });
