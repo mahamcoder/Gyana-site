@@ -11,9 +11,10 @@
 #   falls back to index.html and React Router handles it client-side.
 # -------------------------------------------------------------------
 
-# OPTION A — Prerendered flat files (active)
+# OPTION A - Prerendered flat files (active)
 <IfModule mod_rewrite.c>
 RewriteEngine On
+RewriteRule ^research/?$ /research.html [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
@@ -21,7 +22,7 @@ RewriteRule ^(.+)$ /$1.html [L]
 </IfModule>
 ErrorDocument 404 /404.html
 
-# OPTION B — SPA fallback (use this only if prerendering is not deployed)
+# OPTION B - SPA fallback (use this only if prerendering is not deployed)
 # <IfModule mod_rewrite.c>
 # RewriteEngine On
 # RewriteBase /
