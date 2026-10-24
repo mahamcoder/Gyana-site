@@ -12,6 +12,9 @@ export const contactDetails = {
       schema: '+91-9348559311',
     },
   },
+  social: {
+    linkedin: 'https://www.linkedin.com/in/gyanasarathi/',
+  },
   addresses: {
     india: {
       street: 'HIG 134, K9b, Kalinga Vihar',

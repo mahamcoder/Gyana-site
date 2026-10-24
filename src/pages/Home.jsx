@@ -427,10 +427,10 @@ export const Home = () => {
       </section>
 
       {/* SECTION 4: service details sections  */}
-      <section className="py-24 md:py-32 bg-white relative z-10 overflow-hidden">
+      <section className="pt-20 md:pt-28 pb-10 md:pb-12 bg-white relative z-10 overflow-hidden">
         <div className="container mx-auto px-6 max-w-[1400px]">
           {/* Header with Mixed Overlapping & Scattered Typography */}
-          <div className="max-w-7xl mx-auto text-center mb-24 cursor-default">
+          <div className="max-w-7xl mx-auto text-center cursor-default">
             <h2 className="text-3xl md:text-[4.5rem] font-medium tracking-tight text-black leading-[1.1] flex flex-wrap items-center justify-center gap-y-4 md:gap-y-6">
               <span className="relative z-20">Real Estate Underwriting</span>
               <span className="relative z-10 -mx-6 md:-mx-12 w-32 h-16 md:w-60 md:h-30 rounded-full overflow-hidden inline-flex items-center justify-center bg-gray-100 border border-black/5 scale-110 shadow-lg -translate-x-10 md:-translate-x-16">
@@ -514,7 +514,7 @@ export const Home = () => {
 
 
       {/* SECTION 5: CTA SECTION */}
-      <section className="py-24 md:py-32 bg-sapforce-bg relative z-10 flex items-center justify-center">
+      <section className="pt-6 md:pt-10 pb-20 md:pb-28 bg-sapforce-bg relative z-10 flex items-center justify-center">
         <div className="container mx-auto px-6 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

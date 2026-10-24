@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { contactDetails } from '../../data/contact';
 
 export const Footer = () => {
@@ -103,25 +104,81 @@ export const Footer = () => {
 
           </div>
 
-          {/* Contacts Section */}
-          <div className="mt-16 md:mt-24 pt-4">
-            <div className="flex flex-col gap-4">
-              <h4 className="text-white text-[13px] font-bold tracking-wide">Contact</h4>
-              <div className="flex flex-col gap-3">
-                <a href={`mailto:${contactDetails.email}`} className="text-sapforce-accent text-[10px] font-bold hover:text-white uppercase tracking-[0.1em]">
-                  {contactDetails.email}
-                </a>
-                <a href={`tel:${contactDetails.phones.us.tel}`} className="text-sapforce-accent text-[10px] font-bold hover:text-white uppercase tracking-[0.1em]">
-                  US: {contactDetails.phones.us.display}
-                </a>
-                <a href={`tel:${contactDetails.phones.india.tel}`} className="text-sapforce-accent text-[10px] font-bold hover:text-white uppercase tracking-[0.1em]">
-                  India: {contactDetails.phones.india.display}
-                </a>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sapforce-accent hover:text-white group">
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.1em]">LINKEDIN</span>
-                </a>
+          {/* Contacts & Offices Section */}
+          <div className="mt-12 md:mt-16 pt-10 border-t border-white/10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+
+              {/* Col 1: Direct Contact & Social */}
+              <div className="flex flex-col gap-4">
+                <h4 className="text-white text-xs font-bold uppercase tracking-wider">
+                  Contact & Social
+                </h4>
+                <div className="flex flex-col gap-2.5 text-sm">
+                  <a
+                    href={`mailto:${contactDetails.email}`}
+                    className="text-sapforce-accent font-medium hover:text-white flex items-center gap-2.5 transition-colors"
+                  >
+                    <Mail size={15} className="shrink-0" />
+                    <span>{contactDetails.email}</span>
+                  </a>
+                  <a
+                    href={`tel:${contactDetails.phones.us.tel}`}
+                    className="text-gray-300 font-medium hover:text-white flex items-center gap-2.5 transition-colors"
+                  >
+                    <Phone size={15} className="text-sapforce-accent shrink-0" />
+                    <span>US: {contactDetails.phones.us.display}</span>
+                  </a>
+                  <a
+                    href={`tel:${contactDetails.phones.india.tel}`}
+                    className="text-gray-300 font-medium hover:text-white flex items-center gap-2.5 transition-colors"
+                  >
+                    <Phone size={15} className="text-sapforce-accent shrink-0" />
+                    <span>India: {contactDetails.phones.india.display}</span>
+                  </a>
+                  <a
+                    href={contactDetails.social?.linkedin || "https://www.linkedin.com/in/gyanasarathi/"}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-gray-300 font-medium hover:text-white flex items-center gap-2.5 transition-colors pt-1 group"
+                  >
+                    <svg className="w-3.5 h-3.5 fill-sapforce-accent group-hover:fill-white transition-colors shrink-0" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                    <span className="text-[11px] font-bold uppercase tracking-wider">LinkedIn</span>
+                  </a>
+                </div>
               </div>
+
+              {/* Col 2: India Office */}
+              <div className="flex flex-col gap-4">
+                <h4 className="text-white text-xs font-bold uppercase tracking-wider">
+                  India Office
+                </h4>
+                <div className="flex items-start gap-2.5 text-sm text-gray-300 leading-relaxed">
+                  <MapPin size={16} className="text-sapforce-accent shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-white font-medium">{contactDetails.addresses.india.street}</p>
+                    <p>{contactDetails.addresses.india.city}, {contactDetails.addresses.india.region} {contactDetails.addresses.india.postalCode}</p>
+                    <p className="text-gray-400 text-xs mt-0.5">{contactDetails.addresses.india.country}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Col 3: US Office */}
+              <div className="flex flex-col gap-4">
+                <h4 className="text-white text-xs font-bold uppercase tracking-wider">
+                  US Office
+                </h4>
+                <div className="flex items-start gap-2.5 text-sm text-gray-300 leading-relaxed">
+                  <MapPin size={16} className="text-sapforce-accent shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-white font-medium">{contactDetails.addresses.us.street}</p>
+                    <p>{contactDetails.addresses.us.city}, {contactDetails.addresses.us.region} {contactDetails.addresses.us.postalCode}</p>
+                    <p className="text-gray-400 text-xs mt-0.5">{contactDetails.addresses.us.country}</p>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 

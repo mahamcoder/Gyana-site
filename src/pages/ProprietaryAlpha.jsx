@@ -105,7 +105,7 @@ export const ProprietaryAlpha = () => {
             </h1>
             <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed mb-10">
               We train a private AI model on your historical trades,{' '}
-              <Link to="/analytics" className="underline hover:text-sapforce-accent transition-colors">
+              <Link to="/analytics" className="hover:text-sapforce-accent transition-colors">
                 valuation frameworks
               </Link>{' '}
               and risk limits in an isolated environment. It then applies your logic to every new asset.

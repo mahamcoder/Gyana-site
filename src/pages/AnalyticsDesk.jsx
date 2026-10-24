@@ -128,7 +128,7 @@ export const AnalyticsDesk = () => {
             </h1>
             <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed mb-10">
               The Analytics Desk builds acquisition, development and fund-level models for real estate and infrastructure investors, with{' '}
-              <Link to="/ai-lab" className="text-black underline hover:text-sapforce-accent transition-colors">
+              <Link to="/ai-lab" className="hover:text-sapforce-accent transition-colors">
                 AI checks
               </Link>{' '}
               on every input and output.
