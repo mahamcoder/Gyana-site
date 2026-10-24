@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useSearchParams } from 'react-router-dom';
-import { CalendarDays, ShieldCheck, Mail, MapPin, Clock } from 'lucide-react';
+import { CalendarDays, ShieldCheck, Mail, MapPin, Clock, Phone } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { usePageMeta } from '../lib/seo';
+import { contactDetails } from '../data/contact';
 
 const TOPIC_MAP = {
   'modeling': 'Real Estate Financial Modeling',
@@ -51,18 +52,8 @@ export const Contact = () => {
         'about': {
           '@id': 'https://gyanasarathi.com/#organization',
         },
-      },
-      {
-        '@type': 'Organization',
-        '@id': 'https://gyanasarathi.com/#organization',
-        'name': 'Gyanasarathi',
-        'url': 'https://gyanasarathi.com/',
-        'contactPoint': {
-          '@type': 'ContactPoint',
-          'contactType': 'sales',
-          'email': 'contact@gyanasarathi.com',
-          'areaServed': 'Worldwide',
-          'availableLanguage': 'English',
+        'mainEntity': {
+          '@id': 'https://gyanasarathi.com/#organization',
         },
       },
       {
@@ -338,20 +329,58 @@ export const Contact = () => {
                 <div className="absolute top-0 right-0 w-40 h-40 bg-sapforce-accent blur-[80px] opacity-20 pointer-events-none"></div>
                 <h3 className="text-[11px] font-black uppercase tracking-widest text-gray-400 mb-6">Strategic Inquiries</h3>
                 <div className="space-y-5 relative z-10">
-                  {/* TODO(confirm: monitored mailbox) */}
-                  <a href="mailto:contact@gyanasarathi.com" className="flex items-center gap-4 group">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/5 group-hover:bg-white/20 transition-colors">
+                  <a href={`mailto:${contactDetails.email}`} className="flex items-center gap-4 group">
+                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/5 group-hover:bg-white/20 transition-colors shrink-0">
                       <Mail size={16} className="text-sapforce-accent" />
                     </div>
-                    <span className="text-white font-semibold group-hover:text-sapforce-accent transition-colors">contact@gyanasarathi.com</span>
+                    <span className="text-white font-semibold group-hover:text-sapforce-accent transition-colors">{contactDetails.email}</span>
                   </a>
+
+                  <div className="space-y-3">
+                    <a href={`tel:${contactDetails.phones.us.tel}`} className="flex items-center gap-4 group">
+                      <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/5 group-hover:bg-white/20 transition-colors shrink-0">
+                        <Phone size={16} className="text-sapforce-accent" />
+                      </div>
+                      <span className="text-white font-semibold group-hover:text-sapforce-accent transition-colors text-sm">
+                        <span className="text-gray-400 text-[10px] uppercase tracking-wider font-bold mr-2">US</span>
+                        {contactDetails.phones.us.display}
+                      </span>
+                    </a>
+                    <a href={`tel:${contactDetails.phones.india.tel}`} className="flex items-center gap-4 group">
+                      <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/5 group-hover:bg-white/20 transition-colors shrink-0">
+                        <Phone size={16} className="text-sapforce-accent" />
+                      </div>
+                      <span className="text-white font-semibold group-hover:text-sapforce-accent transition-colors text-sm">
+                        <span className="text-gray-400 text-[10px] uppercase tracking-wider font-bold mr-2">India</span>
+                        {contactDetails.phones.india.display}
+                      </span>
+                    </a>
+                  </div>
+
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/5 shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/5 shrink-0 mt-0.5">
                       <MapPin size={16} className="text-sapforce-accent" />
                     </div>
-                    <span className="text-white/90 text-sm font-medium pt-1">
-                      Hybrid team with hubs in India, serving clients worldwide across time zones.
-                    </span>
+                    <div className="flex flex-col gap-3">
+                      <span className="text-white/90 text-sm font-medium">
+                        Hybrid team with hubs in India, serving clients worldwide across time zones.
+                      </span>
+                      {/* TODO(confirm: the US address vs the "India-based" wording in copy-rewrite.md; confirm with client how to describe the US office) */}
+                      <div className="pt-3 border-t border-white/10 space-y-3">
+                        <div>
+                          <div className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">India office</div>
+                          <div className="text-white/80 text-xs leading-relaxed font-medium">
+                            {contactDetails.addresses.india.formatted}
+                          </div>
+                        </div>
+                        <div>
+                          <div className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">US office</div>
+                          <div className="text-white/80 text-xs leading-relaxed font-medium">
+                            {contactDetails.addresses.us.formatted}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
